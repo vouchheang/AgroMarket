@@ -1,0 +1,12 @@
+.card-img {
+    height: 200px; /* Adjust the height as needed */
+    width: 200px; /* Make the image square */
+    object-fit: cover;
+}
+.full-width-card {
+    max-width: 100%;
+}
+.card-body{
+  font-size: 20px;
+  
+}
