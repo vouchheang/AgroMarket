@@ -14,6 +14,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <link rel="stylesheet" href="style.css">
+  <style>
+    .organic-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: green;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -56,327 +67,186 @@
     <!-- Fruit Category -->
     <hr>
     <h2 class="mt-4">Fruit</h2>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/apple.png" class="card-img-top" alt="Apple">
-          <div class="card-body">
-            <h5 class="card-title">Apple</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/banana.png" class="card-img-top" alt="Banana">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Banana</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/apple.png" class="card-img-top" alt="Apple">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Apple</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/apple.png" class="card-img-top" alt="Apple">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Apple</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/banana.png" class="card-img-top" alt="Banana">
-          <div class="card-body">
-            <h5 class="card-title">Banana</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/apple.png" class="card-img-top" alt="Apple">
-          <div class="card-body">
-            <h5 class="card-title">Apple</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
+    <div class="row" id="fruit1-cards">
+      <!-- Fruit cards will be inserted here by JavaScript -->
     </div>
     <div class="justify-content-center mt-3 text-center">
       <a href="#" class="btn btn-primary">View All</a>
     </div>
+  
+    <script>
+      const fruit1 = [
+        { img: "images/apple.png", title: "Apple", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: false },
+        { img: "images/banana.png", title: "Banana", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: true },
+        { img: "images/apple.png", title: "Apple", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: true },
+        { img: "images/apple.png", title: "Apple", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: true },
+        { img: "images/banana.png", title: "Banana", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: false },
+        { img: "images/apple.png", title: "Apple", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: false }
+      ];
+  
+      const fruit1CardsContainer = document.getElementById('fruit1-cards');
+  
+      fruit1.forEach(fruit => {
+        const card1 = document.createElement('div');
+        card1.className = 'col-md-4';
+  
+        const organicBadge = fruit.organic ? '<span class="badge organic-badge">Organic</span>' : '';
+  
+        card1.innerHTML = `
+          <div class="card position-relative">
+            <img src="${fruit.img}" class="card-img-top" alt="${fruit.title}">
+            ${organicBadge}
+            <div class="card1-body">
+              <h5 class="card1-title">${fruit.title}</h5>
+              <p class="card1-text">Quantity: ${fruit.quantity}</p>
+              <p class="card1-text">Price: ${fruit.price}</p>
+              <p class="card1-text">Province: ${fruit.province}</p>
+            </div>
+          </div>
+        `;
+  
+        fruit1CardsContainer.appendChild(card1);
+      });
+    </script>
 
 
     <!-- Vegetable Category -->
     <hr>
     <h2 class="mt-4">Vegetable</h2>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/carrot.png" class="card-img-top" alt="Carrot">
-          <div class="card-body">
-            <h5 class="card-title">Carrot</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/salad.png" class="card-img-top" alt="Salad">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Salad</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/carrot.png" class="card-img-top" alt="Carrot">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Carrot</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/carrot.png" class="card-img-top" alt="Carrot">
-          <span class="badge organic-badge">Organic</span>
-          <div class="card-body">
-            <h5 class="card-title">Carrot</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/salad.png" class="card-img-top" alt="Salad">
-          <div class="card-body">
-            <h5 class="card-title">Salad</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/carrot.png" class="card-img-top" alt="Apple">
-          <div class="card-body">
-            <h5 class="card-title">Apple</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
+    <div class="row" id="fruit2-cards">
+      <!-- Fruit cards will be inserted here by JavaScript -->
     </div>
     <div class="justify-content-center mt-3 text-center">
       <a href="#" class="btn btn-primary">View All</a>
     </div>
+
+    <script>
+    const fruit2 = [
+      { img: "images/carrot.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: false },
+      { img: "images/salad.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: true },
+      { img: "images/carrot.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: true },
+      { img: "images/carrot.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: true },
+      { img: "images/salad.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: false },
+      { img: "images/carrot.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: false }
+    ];
+    const fruit2CardsContainer = document.getElementById('fruit2-cards');
+  
+      fruit2.forEach(fruit => {
+        const card2 = document.createElement('div');
+        card2.className = 'col-md-4';
+  
+        const organicBadge = fruit.organic ? '<span class="badge organic-badge">Organic</span>' : '';
+  
+        card2.innerHTML = `
+          <div class="card position-relative">
+            <img src="${fruit.img}" class="card-img-top" alt="${fruit.title}">
+            ${organicBadge}
+            <div class="card2-body">
+              <h5 class="card2-title">${fruit.title}</h5>
+              <p class="card2-text">Quantity: ${fruit.quantity}</p>
+              <p class="card2-text">Price: ${fruit.price}</p>
+              <p class="card2-text">Province: ${fruit.province}</p>
+            </div>
+          </div>
+        `;
+  
+        fruit2CardsContainer.appendChild(card2);
+      });
+    </script>
+   
 
 
     <!-- Tractor Category -->
+
     <hr>
-    <h2 class="mt-4">Tractor</h2>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor1.png" class="card-img-top" alt="Tractor">
-          <div class="card-body">
-            <h5 class="card-title">Tractor</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor2.png" class="card-img-top" alt="Tractor 2">
-          <div class="card-body">
-            <h5 class="card-title">Tractor 2</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor1.png" class="card-img-top" alt="Tractor">
-          <div class="card-body">
-            <h5 class="card-title">Tractor</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor1.png" class="card-img-top" alt="Tractor">
-          <div class="card-body">
-            <h5 class="card-title">Tractor</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor2.png" class="card-img-top" alt="Tractor 2">
-          <div class="card-body">
-            <h5 class="card-title">Tractor 2</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/tractor1.png" class="card-img-top" alt="Tractor">
-          <div class="card-body">
-            <h5 class="card-title">Tractor</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
+    <h2 class="mt-4">Tractors</h2>
+    <div class="row" id="fruit3-cards">
+      <!-- Fruit cards will be inserted here by JavaScript -->
     </div>
     <div class="justify-content-center mt-3 text-center">
       <a href="#" class="btn btn-primary">View All</a>
     </div>
+
+    <script>
+    const fruit3 = [
+      { img: "images/tractor1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: false },
+      { img: "images/tractor2.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: true },
+      { img: "images/tractor1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: true },
+      { img: "images/tractor1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: true },
+      { img: "images/tractor2.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: false },
+      { img: "images/tractor1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: false }
+    ];
+    const fruit3CardsContainer = document.getElementById('fruit3-cards');
+  
+      fruit3.forEach(fruit => {
+        const card3 = document.createElement('div');
+        card3.className = 'col-md-4';
+  
+        const organicBadge = fruit.organic ? '<span class="badge organic-badge">Organic</span>' : '';
+  
+        card3.innerHTML = `
+          <div class="card position-relative">
+            <img src="${fruit.img}" class="card-img-top" alt="${fruit.title}">
+            ${organicBadge}
+            <div class="card3-body">
+              <h5 class="card3-title">${fruit.title}</h5>
+              <p class="card3-text">Quantity: ${fruit.quantity}</p>
+              <p class="card3-text">Price: ${fruit.price}</p>
+              <p class="card3-text">Province: ${fruit.province}</p>
+            </div>
+          </div>
+        `;
+  
+        fruit3CardsContainer.appendChild(card3);
+      });
+    </script>
+   
 
     <!-- Fertilizer Category -->
+
     <hr>
-    <h2 class="mt-4">Fertilizer</h2>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer1.png" class="card-img-top" alt="Fertilizer">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer2.png" class="card-img-top" alt="Fertilizer 2">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer 2</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer1.png" class="card-img-top" alt="Fertilizer">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <!-- Fruit Cards -->
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer1.png" class="card-img-top" alt="Fertilizer">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompot</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer2.png" class="card-img-top" alt="Fertilizer 2">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer 2</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Prey Veng</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card position-relative">
-          <img src="images/fertilizer1.png" class="card-img-top" alt="Fertilizer">
-          <div class="card-body">
-            <h5 class="card-title">Fertilizer</h5>
-            <p class="card-text">Quantity: 10 kg</p>
-            <p class="card-text">Price: $5 per kg</p>
-            <p class="card-text">Province: Kompong Speu</p>
-          </div>
-        </div>
-      </div>
+    <h2 class="mt-4">Fertilizers</h2>
+    <div class="row" id="fruit4-cards">
+      <!-- Fruit cards will be inserted here by JavaScript -->
     </div>
     <div class="justify-content-center mt-3 text-center">
       <a href="#" class="btn btn-primary">View All</a>
     </div>
 
+    <script>
+    const fruit4 = [
+      { img: "images/fertilizer1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: false },
+      { img: "images/fertilizer2.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: true },
+      { img: "images/fertilizer1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: true },
+      { img: "images/fertilizer1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompot", organic: true },
+      { img: "images/fertilizer2.png", title: "Salad", quantity: "10 kg", price: "$5 per kg", province: "Prey Veng", organic: false },
+      { img: "images/fertilizer1.png", title: "Carrot", quantity: "10 kg", price: "$5 per kg", province: "Kompong Speu", organic: false }
+    ];
+    const fruit4CardsContainer = document.getElementById('fruit4-cards');
+  
+      fruit4.forEach(fruit => {
+        const card4 = document.createElement('div');
+        card4.className = 'col-md-4';
+  
+        const organicBadge = fruit.organic ? '<span class="badge organic-badge">Organic</span>' : '';
+  
+        card4.innerHTML = `
+          <div class="card position-relative">
+            <img src="${fruit.img}" class="card-img-top" alt="${fruit.title}">
+            ${organicBadge}
+            <div class="card4-body">
+              <h5 class="card4-title">${fruit.title}</h5>
+              <p class="card4-text">Quantity: ${fruit.quantity}</p>
+              <p class="card4-text">Price: ${fruit.price}</p>
+              <p class="card4-text">Province: ${fruit.province}</p>
+            </div>
+          </div>
+        `;
+  
+        fruit4CardsContainer.appendChild(card4);
+      });
+    </script>
+    
   </div>
 
   <div class="container">
