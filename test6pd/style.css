@@ -1,12 +1,6 @@
 .card {
     margin-bottom: 20px;
-    /* max-height: 350px; */
     transition: transform 0.3s;
-    background-color: yellowgreen;
-    
-  }
-  .mt-5{
-    font-family: "Island Moments", cursive;
   }
   
   .card:hover {
@@ -22,10 +16,13 @@
     border-radius: 5px;
   }
   .card-img-top {
-    width: 100%;
-   height: 100%;
+    width: 95%;
+    max-height: 300px;
     /* height: auto; */
     object-fit: cover;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 10px;
   }
   .card-body {
     padding: 20px;
@@ -38,6 +35,30 @@
     font-size: 1.1rem;
     margin-bottom: 5px;
   }
-  #product-list{
+  
+  .active img{
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
     display: flex;
-  }
+    }
+    .box {
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .image-box {
+        position: relative;
+        overflow: hidden;
+    }
+    .image-box img {
+        width: 100%;
+        height: auto;
+    }
+    .text-box {
+        padding: 15px;
+    }
+    .btn-primary {
+        margin-top: 20px;
+    }
