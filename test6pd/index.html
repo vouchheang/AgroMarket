@@ -6,40 +6,13 @@
     <title>Product Display</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
 </head>
 <body>
-    <div class="container">
-    <header
-    class="d-flex justify-content-center py-3 border-bottom"  style="margin-bottom: 2%" >
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <span class="fs-4">AgroMarket</span>
-    </a>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">Home</a>
-      </li>
-      <li class="nav-item"><a href="../pages/viewallpd/index.html" class="nav-link">Products</a></li>
-    </ul>
-  </header>
     <div class="container mt-5">
         <div id="display" class="row">
         </div>
     </div>
-</div>
+
     <script>
         async function fetchProductsByCategory(categoryId) {
             const url = `https://colorful-ball-607353d204.strapiapp.com/api/products?filters[categoryID][CategoryID][$eq]=${categoryId}&pagination[pageSize]=6&populate=*`;
@@ -57,7 +30,8 @@
                     const product = products[i];
                     // categoryText = product.attributes.category.data.attributes.name;
                     const imageUrl = product.attributes.images.data[0]?.attributes.url;
-
+                                    
+                                    
                     cards += ` 
         <div class="col-md-4">
           <div class="box">
@@ -78,10 +52,10 @@
                     `;
                 }
 
-                if (products.length > 0 ) { // Assuming categoryId 1 is for "Fruit"
+                if (products.length > 0) {
                     button = `
                         <div class="col-12 text-center mt-3">
-                            <a href="./pages/viewall/index.html?categoryid=${categoryId}" class="btn btn-primary">View All</a>
+                            <a href="./pages/category/index.html?categoryid=${categoryId}" class="btn btn-primary">View All</a>
                         </div>
                     `;
                 }
@@ -100,7 +74,7 @@
         }
 
         async function loadProducts() {
-            const categories = [1, 2, 3, 4]; // Add the correct category IDs
+            const categories = [1, 2, 3, 4];
             const promises = categories.map(fetchProductsByCategory);
             const results = await Promise.all(promises);
             const element = document.getElementById("display");
