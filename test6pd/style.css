@@ -62,3 +62,8 @@
     .btn-primary {
         margin-top: 20px;
     }
+    .container {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
