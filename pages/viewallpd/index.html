@@ -66,28 +66,56 @@
       .text-box{
         margin-left: 2%;
       }
+      .filter-buttons {
+            display: flex;
+            /* justify-content: space-around; */
+            gap: 20px;
+            margin: 20px;
+            
+        }
+        .filter-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+           
+        }
+        .filter-button:hover {
+            background-color: #0056b3;
+        }
     </style>
+    
   </head>
 
   <body>
     <div class="container">
       <header
         class="d-flex justify-content-center py-3 border-bottom"
-        style="margin-bottom: 2%"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-        >
+        style="margin-bottom: 2%">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
           <span class="fs-4">AgroMarket</span>
         </a>
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">Home</a>
+            <a href="index.html" class="nav-link " aria-current="page">Home</a>
           </li>
-          <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="../viewallpd/index.html" class="nav-link active">Products</a></li>
         </ul>
       </header>
+
+      <div class="filter-buttons">
+     <a href="../viewall/index.html?categoryID=1"> <button class="filter-button" onclick="applyFilter('filter1')">Fruit</button></a>  
+        <button class="filter-button" onclick="applyFilter('filter2')">Vegetable</button>
+        <button class="filter-button" onclick="applyFilter('filter3')">Tractor</button>
+        <button class="filter-button" onclick="applyFilter('filter4')">Fertilizer</button>
+    </div>
+
+
+
       <div id="Productlist"></div>
       <footer>&copy; 2024 AgroMarket.</footer>
     </div>
