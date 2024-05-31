@@ -31,10 +31,12 @@
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  font-weight: ;
 }
 .card-text {
   font-size: 1.1rem;
   margin-bottom: 5px;
+  
 }
 /* }
 .mt-5{
